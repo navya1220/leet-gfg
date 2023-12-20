@@ -3,10 +3,9 @@ public:
     int buyChoco(vector<int>& prices, int money) {
         sort(prices.begin(), prices.end());
         int ans;
-        for(int i=0;i<prices.size()-1;i++) {
+        for(int i=0;i<prices.size();i++) {
             ans = prices[i];
-            for(int j=i+1;j<prices.size();j++) {
-                ans += prices[j];
+                ans += prices[i+1];
                 if(ans == money) return 0;
                 else if(ans < money) {
                     return money-ans;
@@ -14,7 +13,6 @@ public:
                 else 
                     return money;
             }
-        }
         return 0;
     }
 };
